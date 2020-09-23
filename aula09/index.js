@@ -20,6 +20,6 @@ app.get("/users", (req,res) =>{
 app.get("/home", (req,res) =>{
     res.send("Olá você está na rota home")
 })
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log("O servidor está rodando na porta 3000")
 })
