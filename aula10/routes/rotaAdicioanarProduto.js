@@ -1,17 +1,10 @@
 const express = require("express")
-const router = express.Router()
+const produtoController = require("../controllers/produtoController")
+const queryController = require("../controllers/queryController")
+const routes = express.Router()
 
-router.get("/produto/adicionar/:nome/:preco/:quantidade/:codigo",(req,res)=>{
-    let {nome, preco, quantidade, codigo} = req.params
-    
-    const produto = {
-     nome,
-     preco,
-     quantidade,
-     codigo
-    }
+routes.get("/produto/adicionar/:nome/:preco/:quantidade/:codigo", produtoController.getProduto)
 
-    res.send(produto)
-})
+routes.get("/query/params/:nome",queryController.getQuery)
 
-module.exports = router;
+module.exports = routes;
