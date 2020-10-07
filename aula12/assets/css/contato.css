@@ -1,0 +1,30 @@
+main section h1{
+    text-align: center;
+    font-size: 38px;
+}
+main section p{
+    text-align: center;
+    font-size: 22px;
+}
+.form-contato {
+    text-align: center;
+    font-size: 22px;
+}
+section form label{
+  display: block;  
+  font-size: 20px;
+  margin-bottom: 5px;
+  text-align: start;
+}
+form div.form-inline div{
+    display: inline-block;
+    margin: 10px;
+}
+form div.form-inline .input-contato{
+    width: 300px;
+    height: 20px;
+}
+form div.form-inline textarea.textarea-contato{
+    resize: none;
+    width: 630px;
+}
