@@ -82,26 +82,14 @@ section .see-more {
     margin: 0 105px;
 }
 
-.container{
-    overflow:hidden ;
-}
 
-article{
-    float: left;
-    width: 30%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    text-align: center;
-    box-sizing: border-box;
-}
 footer {
-    background-color: #ffb90f;
-    text-align: center;
-    display: block;
     height: 100px;
-    width: 100px;
+    width: 100%;
+    background-color: #ffb90f;
+    text-align: center;    
     color: white;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 20px 20px 0px 0px;
     font-size: 20px;
     line-height: 100px;
 }
