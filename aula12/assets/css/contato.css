@@ -1,30 +1,43 @@
 main section h1{
-    text-align: center;
     font-size: 38px;
+    
 }
 main section p{
-    text-align: center;
-    font-size: 22px;
+    font-size: 22px;  
 }
-.form-contato {
-    text-align: center;
-    font-size: 22px;
+
+main section{
+    display: flex;
+    justify-content: space-around;
 }
+
 section form label{
-  display: block;  
+  display: flex;  
   font-size: 20px;
-  margin-bottom: 5px;
-  text-align: start;
 }
-form div.form-inline div{
-    display: inline-block;
-    margin: 10px;
+
+form div.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
 }
+
 form div.form-inline .input-contato{
     width: 300px;
     height: 20px;
 }
+
 form div.form-inline textarea.textarea-contato{
     resize: none;
-    width: 630px;
+    width: 620px;
+}
+
+form div.form-inline button{
+    background-color: #ffb90f;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
 }
