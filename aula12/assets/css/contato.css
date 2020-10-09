@@ -20,7 +20,6 @@ form div.form-inline {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: center;
 }
 
 form div.form-inline .input-contato{
@@ -33,7 +32,7 @@ form div.form-inline textarea.textarea-contato{
     width: 620px;
 }
 
-form div.form-inline button{
+form div.botao-enviar button{
     background-color: #ffb90f;
     border-radius: 5px;
     border: none;
