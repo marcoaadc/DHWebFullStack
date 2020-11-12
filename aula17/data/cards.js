@@ -1,4 +1,4 @@
-let cards = [
+module.exports = [
   {
     'path_image': '/images/card-vingadores.jpg',
     'title': 'Primeiro Título',
@@ -17,8 +17,4 @@ let cards = [
     'text': 'Terceiro texto do card que temos para exibir',
     'button': 'Ver mais'
   },
-];
-
-module.exports = {
-  cards
-}
+]
