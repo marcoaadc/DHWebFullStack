@@ -21,12 +21,21 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/usuario/registrar">Cadastre-se</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/usuario/autenticar">Login</a>
-      </li>
+      <% if (typeof user !== "undifined") { %>
+        <li class="nav-item">
+          <a class="nav-link" href="">Olá, <%= user.name %> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Sair</a>
+        </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/usuario/registrar">Cadastre-se</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/usuario/autenticar">Login</a>
+          </li>        
+        <% } %>      
     </ul>
   </div>
 </nav>
