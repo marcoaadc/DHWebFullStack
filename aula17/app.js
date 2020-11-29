@@ -16,9 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret:"projeto-node-fs10",
-  resave:true,
-  saveUninitialized:true
+  secret: "projeto-node-fs10",
+  resave: true,
+  saveUninitialized: true
 }));
 
 app.use(logger('dev'));
