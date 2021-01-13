@@ -6,9 +6,16 @@ const {User} = require('../models');
 //     password:'123456'
 // });
 
-User.findAll().then(
+// User.findAll().then(
+//     users => {
+//         console.log(users[0].toJSON())
+//         process.exit();
+//     }
+// );
+
+User.findByPk(3).then(
     users => {
-        console.log(users[0].toJSON())
+        console.log(users.toJSON())
         process.exit();
     }
 );
