@@ -1,49 +1,72 @@
-const contacts = require("../data/contacts");
-const cards = require("../data/cards");
-const saveData = require("../utils/saveData");
+const {Contact, Card} = require("../models");
 
 module.exports = {
-  list(req, res, next) {
-    res.render('contacts', { contacts, user: req.session.user });
+  async list(req, res, next) {
+    let { page = 1 } = req.query;
+    page = parseInt(page);
+    let limit = 10;
+
+    let contacts = await Contact.findAll({
+      where:{
+        deleted:0
+      },
+      limit: limit,
+      offset: ((page -1) * limit)
+    });
+
+    let total = await Contact.count();
+    total = total/limit;
+    total = parseInt(total);
+    console.log(total)
+
+    res.render('contacts', { contacts, user: req.session.user, page, total});
   },
 
-  create(req, res, next) {
-    let id = contacts.length + 1
-    let contact = { id, ...req.body }
-    contacts.push(contact)
-
-    saveData(contacts, "contacts.js");
+  async create(req, res, next) {
+    let cards = await Card.findAll();
+    
+    let contact = { ...req.body };    
+    await Contact.create(contact);
 
     res.render('index', { cards, added: true });
   }, 
 
-  edit(req, res, next) {
+ async  edit(req, res, next) {
     let id = req.params.id;
-    let contact = contacts.find(contato => id == contato.id);
+    let contact = await Contact.findByPk(id);
 
     res.render('edit-contact', { contact });
   },
 
-  update(req, res, next) {
+  async update(req, res, next) {
     let id = req.params.id;
-    let { nome, email, mensagem } = req.body;
-    let contact = contacts.find(contact => contact.id == id);
+    let contact = await Contact.findByPk(id);
+
+    let { nome, email, mensagem } = req.body;    
 
     contact.name = nome
     contact.email = email
     contact.message = mensagem
 
-    saveData(contacts, "contacts.js");
+    await contact.save();
 
     res.render('edit-contact', { contact, updated: true })
   },
 
-  delete(req, res, next) {
+  async delete(req, res, next) {
     let id = req.params.id;
-    contacts.splice(id - 1, 1);
+    let contact = await Contact.findByPk(id);
 
-    saveData(contacts, "contacts.js");
+    contact.deleted = true;
 
+    await contact.save();    
+
+    let contacts = await Contact.findAll({
+      where:{
+        deleted:0
+      }
+    });
+    
     res.render('contacts', { contacts, deleted: true });
   },
 }
